@@ -1,0 +1,224 @@
+<body>
+    {% extends 'main.html' %} {% block content %}
+    <div class="container-fluid d-flex flex-row align-items-center justify-content-center">
+        <div class="mt-5 shadow p-3 mb-5 bg-white rounded">
+            {% if emp.id is not none %}
+            <form method="POST" action="{% url 'Bench:edit_emp' emp.id %}" enctype="multipart/form-data" autocomplete="off">
+                {% else %}
+                <form method="POST" action="{% url 'Bench:create_emp' %}" enctype="multipart/form-data" autocomplete="off">
+                    {% endif %} {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="">Name</label>
+                            <input type="text" autocomplete="off" value="{{emp.name}}" name="name" class="form-control" placeholder="Employee Name">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputPassword4">Designation</label>
+                            <select id="" name="designation" class="form-control">
+                                {% if emp.id is not none %}
+                        <option selected value="{{emp.designation}}">{{emp.designation}}</option>
+                    <option value="Software Engineer">Software Engineer</option>
+                      <option value="iOS Team lead">iOS Team lead</option>
+                      <option value="Trainee">Trainee</option>
+                      <option value="Leader">Leader</option>
+                      <option value="Front-End Developer">Front-End Developer</option>
+                      <option value="Back-End Developer">Back-End Developer</option>
+                      <option value="Graphics Designer">Graphics Designer</option>
+                      <option value="Full Stack Developer">Full Stack Developer</option>
+                      <option value="Quality Analyst">Quality Analyst</option>
+
+
+                                    {% else %}
+                      <option selected>---Select----</option>
+                                        {% endif %}
+
+                    <option value="Software Engineer">Software Engineer</option>
+                    <option value="iOS Team lead">iOS Team lead</option>
+                    <option value="Trainee">Trainee</option>
+                    <option value="Leader">Leader</option>
+                    <option value="Front-End Developer">Front-End Developer</option>
+                    <option value="Back-End Developer">Back-End Developer</option>
+                    <option value="Graphics Designer">Graphics Designer</option>
+                    <option value="Full Stack Developer">Full Stack Developer</option>
+                    <option value="Quality Analyst">Quality Analyst</option>
+                  
+                    </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputPassword4">Teamleader</label>
+                            <select id="" name="team_leader" class="form-control">
+                                {% if emp.id is not none %}
+                        <option selected value="{{emp.team_leader}}">{{emp.team_leader}}</option>
+                        <option value="Balachandar">Balachandar</option>
+                      <option value="Balaji">Balaji</option>
+                      <option value="Damodharan">Damodharan</option>
+                      <option value="Fernandus">Fernandus</option>
+                      <option value="Indhumathy">Indhumathy</option>
+                      <option value="Kautham">Kautham</option>
+                      <option value="Keerthiharan">Keerthiharan</option>
+                      <option value="Mohanraj">Mohanraj</option>
+                      <option value="Muruganadham">Muruganadham</option>
+                      <option value="Manikam">Manikam</option>
+                      <option value="Sundar">Sundar</option>
+                      <option value="Valarmathy">Valarmathy</option>
+                      <option value="Vasanth">Vasanth</option>
+                      <option value="VijayAnand">VijayAnand</option>
+                      <option value="Vijayakumar">Vijayakumar</option>
+                      <option value="Manibalan">Manibalan</option>
+
+                                    {% else %}
+                      <option selected>---Select----</option>
+                                        {% endif %}
+
+                        <option value="Balachandar">Balachandar</option>
+                        <option value="Balaji">Balaji</option>
+                        <option value="Damodharan">Damodharan</option>
+                        <option value="Fernandus">Fernandus</option>
+                        <option value="Indhumathy">Indhumathy</option>
+                        <option value="Kautham">Kautham</option>
+                        <option value="Keerthiharan">Keerthiharan</option>
+                        <option value="Mohanraj">Mohanraj</option>
+                        <option value="Muruganadham">Muruganadham</option>
+                        <option value="Manikam">Manikam</option>
+                        <option value="Sundar">Sundar</option>
+                        <option value="Valarmathy">Valarmathy</option>
+                        <option value="Vasanth">Vasanth</option>
+                        <option value="VijayAnand">VijayAnand</option>
+                        <option value="Vijayakumar">Vijayakumar</option>
+                        <option value="Manibalan">Manibalan</option>
+                  
+                    </select>
+
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="">Experience</label>
+                            <select id="" name="experience" class="form-control">
+                                {% if emp.id is not none %}
+                        <option selected value="{{emp.experience}}">{{emp.experience}}</option>
+                        <option value="0-12 months">0-12 months</option>
+                      <option value="1-2 years">1-2 years</option>
+                      <option value="2-3 years">2-3 years</option>
+                      <option value="3-4 years">3-4 years</option>
+                      <option value="4-5 years">4-5 years</option>
+                      <option value="5 years above">5 years above</option>
+
+                                    {% else %}
+                      <option selected>---Select----</option>
+                                        {% endif %}
+
+                        <option value="0-12 months">0-12 months</option>
+                        <option value="1-2 years">1-2 years</option>
+                        <option value="2-3 years">2-3 years</option>
+                        <option value="3-4 years">3-4 years</option>
+                        <option value="4-5 years">4-5 years</option>
+                        <option value="5 years above">5 years above</option>
+
+                  
+                    </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="">Resource</label>
+                            <select id="" name="resource_status" class="form-control">
+                                {% if emp.id is not none %}
+                        <option selected value="{{emp.resource_status}}">{{emp.resource_status}}</option>
+                        <option value="Dedicated Billable">Dedicated Billable</option>
+                      <option value="Fixed Billable">Fixed Billable</option>
+                      <option value="Fixed Non-Billable">Fixed Non-Billable</option>
+                      <option value="Dedicated Non-Billable">Dedicated Non-Billable</option>
+                      <option value="Dedicated proxy">Dedicated proxy</option>
+                      <option value="Bench">Bench</option>
+                      <option value="Training">training</option>
+
+                                    {% else %}
+                      <option selected>---Select----</option>
+                                        {% endif %}
+
+                      <option value="Dedicated Billable">Dedicated Billable</option>
+                      <option value="Fixed Billable">Fixed Billable</option>
+                      <option value="Fixed Non-Billable">Fixed Non-Billable</option>
+                      <option value="Dedicated Non-Billable">Dedicated Non-Billable</option>
+                      <option value="Dedicated proxy">Dedicated proxy</option>
+                      <option value="Bench">Bench</option>
+                      <option value="Training">training</option>
+                    </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="">Stack</label>
+                            <select id="" name="stack" class="form-control">
+                                {% if emp.id is not none %}
+                        <option selected value="{{emp.stack}}">{{emp.stack}}</option>
+                        <option value="DotNet (.Net)">DotNet (.Net)</option>
+                      <option value="Android">Android</option>
+                      <option value="Angular">Angular</option>
+                      <option value="AWS Node">AWS Node</option>
+                      <option value="Back-End">Back-End</option>
+                      <option value="DotNet">DotNet </option>
+                      <option value="Front-End">Front-End</option>
+                      <option value="Front-End(IOS)">Front-End(IOS)</option>
+                      <option value="Front-End(Android)">Front-End(Android)</option>
+                      <option value="Flutter">Flutter</option>
+                      <option value="FullStack">FullStack</option>
+                      <option value="functioning and Non functioning testing">functioning and Non functioning testing</option>
+                      <option value="iOS">iOS</option>
+                      <option value="React JS">React JS</option>
+                      <option value="React Native">React Native</option>
+                      <option value="Unity">Unity</option>
+                      <option value="UI">UI</option>
+
+                      <option value="QA">QA</option>
+                      <option value="UX Graphics Design">UX Graphics Design</option>
+                      
+
+                                    {% else %}
+                      <option selected>---Select----</option>
+                                        {% endif %}
+
+                                        <option value="DotNet (.Net)">DotNet (.Net)</option>
+                                        <option value="Android">Android</option>
+                                        <option value="Angular">Angular</option>
+                                        <option value="AWS Node">AWS Node</option>
+                                        <option value="Back-End">Back-End</option>
+                                        <option value="DotNet">DotNet </option>
+                                        <option value="Front-End">Front-End</option>
+                                        <option value="Front-End(IOS)">Front-End(IOS)</option>
+                                        <option value="Front-End(Android)">Front-End(Android)</option>
+                                        <option value="Flutter">Flutter</option>
+                                        <option value="FullStack">FullStack</option>
+                                        <option value="functioning and Non functioning testing">functioning and Non functioning testing</option>
+                                        <option value="iOS">iOS</option>
+                                        <option value="React JS">React JS</option>
+                                        <option value="React Native">React Native</option>
+                                        <option value="QA">QA</option>
+                                        <option value="Unity">Unity</option>
+                                        <option value="UI">UI</option>
+
+                                        <option value="UX Graphics Design">UX Graphics Design</option>
+                    </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Date of joining</label>
+                            <input type="date" class="form-control" value="{{emp.date_of_joining}}" name="date_of_joining" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Key Skills</label>
+                        <input type="text" class="form-control" id="" value="{{emp.skills}}" name="skills" placeholder="key Skills">
+                    </div>
+                    <div class="form-row">
+
+                        <div class="form-group col-md-12">
+                            <label for="">Profile Link</label>
+                            <input type="text" value="{{emp.profile_link}}" class="form-control" name="profile_link" placeholder="">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success float-right">Submit</button>
+                </form>
+        </div>
+    </div>
+    {% endblock %}
+</body>

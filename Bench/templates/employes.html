@@ -1,0 +1,209 @@
+<body>
+    {% extends 'main.html' %} {% block content %}
+    <div class="row m-3 d-flex flex-row justify-content-end">
+        <a href="{% url 'Bench:create_emp' %}" class="btn w-15 btn-success">Add Employee</a
+    >
+  </div>
+    <div class="container-fluid p-4">
+
+       
+    <div class="table-responsive">
+        <table id="example" class="table table-hover ">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <td>
+                        <div id="list1" class="dropdown-check-list" tabindex="100">
+                            <span class="anchor">Teamleader</span>
+                            <ul class="items">
+                                {% for item in team_leader %}
+                                <li style='list-style-type:none;'> <input type="checkbox" class="filter-checkbox-tl" value="{{item.team_leader}}" /> {{item.team_leader}}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </td>
+                    <th>Name</th>
+                    <td>
+                        <div id="list2" class="dropdown-check-list" tabindex="100">
+                            <span class="anchor">Designation</span>
+                            <ul class="items">
+                                {% for item in designation%}
+                                <li style='list-style-type:none;'> <input type="checkbox" class="filter-checkbox-designation" value="{{item.designation}}" /> {{item.designation}}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </td>
+                    <th>Experience</th>
+                    <td>
+                        <div id="list3" class="dropdown-check-list" tabindex="100">
+                            <span class="anchor">Stack</span>
+                            <ul class="items">
+                                {% for item in stack%}
+                                <li style='list-style-type:none;'> <input type="checkbox" class="filter-checkbox-stack" value="{{item.stack}}" /> {{item.stack}}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="list4" class="dropdown-check-list" tabindex="100">
+                            <span class="anchor">Resource</span>
+                            <ul class="items">
+                                {% for item in resource_status%}
+                                <li style='list-style-type:none;'> <input type="checkbox" class="filter-checkbox-resource" value="{{item.resource_status}}" /> {{item.resource_status}}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </td>
+                    <th>Skills</th>
+                    <th>DOJ</th>
+
+                    <th>Actions</th>
+                    
+
+                </tr>
+               
+
+            </thead>
+            <tbody>
+
+                {% for employe in employes %}
+                <tr>
+                    <th>{{forloop.counter}}</th>
+                    <td>{{employe.team_leader}}</td>
+                    <td>{{employe.name}}</td>
+                    <td>{{employe.designation}}</td>
+                    <td>{{employe.experience}}</td>
+                    <td>{{employe.stack}}</td>
+                    <td>{{employe.resource_status}}</td>
+                    <td>{{employe.skills}}</td>
+                    <td>{{employe.date_of_joining}}</td>
+                    <td>
+                        <a href="{% url 'Bench:edit_emp' employe.id %}">Edit</a>
+        <a href="{% url 'Bench:delete_emp' employe.id %}">Delete</a>
+        </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    </div>
+
+
+    </div>
+    <style>
+        .dropdown-check-list {
+            display: inline-block;
+        }
+        
+        .buttons-excel {
+            background-color: #0094ff;
+            margin: 10px;
+            border: none;
+        }
+        
+        .buttons-csv {
+            background-color: #5fdb6f;
+            margin: 10px;
+            border: none;
+        }
+        
+        .buttons-copy {
+            background-color: #788128;
+            margin: 10px;
+            border: none;
+        }
+        
+        #example_filter,
+        #example_paginate {
+            float: right;
+        }
+        
+        .dropdown-check-list .anchor {
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            padding: 5px 50px 5px 10px;
+            border: 1px solid #ccc;
+        }
+        
+        .dropdown-check-list .anchor:after {
+            position: absolute;
+            content: "";
+            border-left: 2px solid black;
+            border-top: 2px solid black;
+            padding: 5px;
+            right: 10px;
+            top: 20%;
+            -moz-transform: rotate(-135deg);
+            -ms-transform: rotate(-135deg);
+            -o-transform: rotate(-135deg);
+            -webkit-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+        }
+        
+        .dropdown-check-list .anchor:active:after {
+            right: 8px;
+            top: 21%;
+        }
+        
+        .dropdown-check-list ul.items {
+            padding: 2px;
+            display: none;
+            margin: 0;
+            border: 1px solid #ccc;
+            border-top: none;
+            z-index: 1;
+            position: absolute;
+            background: #fff;
+            width: 15vw;
+        }
+        
+        .dropdown-check-list ul.items li {
+            list-style: none;
+        }
+        
+        .dropdown-check-list.visible .anchor {
+            color: #0094ff;
+        }
+        
+        .dropdown-check-list.visible .items {
+            display: block;
+        }
+    </style>
+    <script>
+        var checkList1 = document.getElementById('list1');
+        checkList1.getElementsByClassName('anchor')[0].onclick = function(evt) {
+            if (checkList1.classList.contains('visible'))
+                checkList1.classList.remove('visible');
+            else
+                checkList1.classList.add('visible');
+        }
+        var checkList2 = document.getElementById('list2');
+        checkList2.getElementsByClassName('anchor')[0].onclick = function(evt) {
+            if (checkList2.classList.contains('visible'))
+                checkList2.classList.remove('visible');
+            else
+                checkList2.classList.add('visible');
+        }
+        var checkList3 = document.getElementById('list3');
+        checkList3.getElementsByClassName('anchor')[0].onclick = function(evt) {
+            if (checkList3.classList.contains('visible'))
+                checkList3.classList.remove('visible');
+            else
+                checkList3.classList.add('visible');
+        }
+        var checkList4 = document.getElementById('list4');
+        checkList4.getElementsByClassName('anchor')[0].onclick = function(evt) {
+            if (checkList4.classList.contains('visible'))
+                checkList4.classList.remove('visible');
+            else
+                checkList4.classList.add('visible');
+        }
+    </script>
+    {% endblock %}
+
+
+</body>

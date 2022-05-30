@@ -1,0 +1,38 @@
+{% extends 'bench.html' %} {% block benchrows %}
+
+<div class="mt-5 p-5" style="max-height: 100vh;overflow: scroll;">
+    {% for employe in employes %}
+    <div class='row shadow-lg p-1 mb-5 bg-white rounded'>
+        <div class="col-3">
+            <div class="listImg2 ">
+                <img src="https://www.onbenchmark.com/ssrsystem/images/icon/user.png" style=" width:15vw;height:30vh;border-radius: 50%;" alt="candidate avatar" />
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="row">
+                <div class="col-6">
+                    <h4 class="fname-title mb-0">{{employe.name}}</h4>
+                    <p>&nbsp;Designation : &nbsp;<span><b>{{employe.designation}}</b> </span></p>
+                    <p>&nbsp;Primary Skill : &nbsp; <b>{{employe.primary_skills}}</b></p>
+                    <p>&nbsp;Secondary Skill : &nbsp;<b>{{employe.secondary_skills}}</b></p>
+                    <p>&nbsp;Online Profile : &nbsp;<b>{{employe.profile_link}}</b></p>
+
+                </div>
+                <div class="col-6">
+                    <p>Status :&nbsp; <b>{{employe.status}}</b> </p>
+                    <p>Work Status : &nbsp; <b>{{employe.work_status}}</b> </p>
+                    <p>Billing : &nbsp; <b>{{employe.billing}}</b> </p>
+                    <p>Pay :&nbsp; <b>{{employe.pay_value}} LPA</b> </p>
+                    <p>Proxy :&nbsp; <b>{{employe.proxy}}</b></p>
+                </div>
+
+            </div>
+            <div class="row">
+                <p class="para"><b>&nbsp;Key Skills</b>:&nbsp; <span class="block-skill">item1</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

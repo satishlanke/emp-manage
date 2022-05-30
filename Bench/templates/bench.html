@@ -1,0 +1,185 @@
+<body>
+    {% extends 'main.html' %} {% block content %}
+    <!-- <div class="h-10 bg-light p-4 container-fluid">
+        <h1 class="text-center ">Bench</h1>
+    </div> -->
+    <div class="container">
+        <div class="d-flex mt-2 flex-row justify-content-center">
+            <form class="form" method="POST" enctype="multipart/form-data" action="{% url 'Bench:bench_emp' %}">
+                {% csrf_token %}
+
+                <div class="d-flex mt-2 flex-row justify-content-center">
+                    <input type="text" value="{{form_data}}" class="form-control mr-2" placeholder="Search" name="search" />
+                    <button type="submit" style="width:15vw" class="form-control btn-sm btn-success">Search</button>
+                </div>
+            </form>
+
+        </div>
+
+        {% block benchrows %} {% endblock %}
+    </div>
+</body>
+<style>
+    .fname-title {
+        color: #585856;
+        font-size: 22px;
+        font-weight: 500;
+    }
+    
+    .bench-topnav-nav-link {
+        margin-right: 1.5em;
+        padding: 8px 16px;
+        background-color: #00aade;
+        color: white;
+        font-weight: 500;
+    }
+    
+    .bench-topnav-nav-link:hover {
+        color: black!important;
+        /* background-color: #00aade; */
+    }
+    
+    .Bench-logoImage {
+        width: 100px;
+        height: auto;
+        margin-left: 1.5em;
+    }
+    
+    .job-div-1 {
+        padding: 15px;
+        background: #fff;
+        margin: 15px 0;
+        border: 1px solid #e0e0e0;
+        /* padding: 2em; */
+    }
+    
+    .secondblock-bench {
+        padding: 2.5em;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: center;
+    }
+    
+    .p-text {
+        text-align: center;
+        font-size: 17px;
+        line-height: 1.5;
+        color: white;
+        /* width: 80%; */
+    }
+    
+    .secondblock-bench-margin {
+        margin-left: 3em;
+        margin-right: 3em;
+    }
+    
+    .submit-bench {
+        color: #fff;
+        padding: 8px 20px 9px 20px;
+        background: #00aade;
+        font-size: 15px;
+        border: none;
+    }
+    
+    .secondBlock-bench {
+        margin-top: 2em;
+        padding: 10px 8px 7px 10px;
+        background: #9b9c9a;
+        margin-bottom: 15px;
+        margin-right: 6em;
+    }
+    
+    .Bench-job-row-main {
+        width: 100%;
+        margin-right: 5.6em;
+    }
+    
+    .searchBar-row {
+        row-gap: 0px;
+    }
+    
+    .form-home-search {
+        padding: 10px 8px 7px 10px;
+        background: #9b9c9a;
+        margin-bottom: 15px;
+    }
+    
+    .para {
+        font-weight: 400!important;
+        margin-top: 8px;
+    }
+    
+    .job-div-1 p {
+        font-weight: 400;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+    
+    .block-skill {
+        background: #787b78;
+        padding: 0 10px;
+        color: #fff;
+        border-radius: 4px;
+        margin: 3px 3px;
+        display: inline-block;
+    }
+    
+    .margin-row-div {
+        margin-left: -15px;
+        /* margin-right: -15px; */
+        padding: 2em;
+    }
+    
+    .bench-filter-main {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 2em;
+    }
+    
+    .bench-filter-main-row {
+        margin-left: 4em!important;
+    }
+    
+    .bench-col-form {
+        padding: 1em!important;
+    }
+    
+    .benchjobrow-Link {
+        color: black;
+    }
+    
+    .benchjobrow-Link:hover {
+        color: black;
+    }
+    
+    @media screen and (max-width:565px) {
+        .margin-row-div {
+            margin: 0 0 0 0!important;
+        }
+        .secondBlock-bench {
+            margin-right: 0!important;
+        }
+        .bench-filter-main-row {
+            margin-left: 0!important;
+        }
+        .Bench-job-row-main {
+            width: 100%;
+            margin-right: 0!important;
+        }
+        .bench-topnav-nav-link {
+            margin-right: 1.5em;
+            padding: 0px;
+            background-color: transparent;
+            color: black;
+            font-weight: 500;
+        }
+        .bench-topnav-nav-link:hover {
+            color: black!important;
+            /* background-color: #00aade; */
+        }
+    }
+</style>
+{% endblock %}
